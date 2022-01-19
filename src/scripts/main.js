@@ -24,14 +24,23 @@ const seedObject = {
     height: 99,
     output: 6
 }
-
+//this is pushing the seed object into allOfThePlants array
 let addingPlant = addPlant(seedObject)
 console.log(addingPlant)
 
+//this is printing the newAllOfThePlants array
+//with the seedObject
 let usingPlants = usePlants()
-console.log(usingPlants)
+console.log(usingPlants) 
+
 
 import { plantSeeds } from './tractor.js';
 
+//invoke plantSeeds() function that plants all the seeds
 let plantingSeeds = plantSeeds()
 console.log(plantingSeeds)
+
+//get plants array from fields.js (newAllOfThePlants)
+let plantsArray = usePlants()
+//console.log() to see if plants array has been populated correctly
+console.log(plantsArray)
