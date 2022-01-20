@@ -47,5 +47,10 @@ let plantsArray = usePlants()
 console.log(plantsArray)
 
 
-let harvesting = harvestPlants(plantsArray)
-console.log(harvesting)
+let harvestArray = harvestPlants(plantsArray)
+console.log(harvestArray)
+
+import { Catalog } from './catalog.js';
+
+let finalLog = Catalog(harvestArray)
+console.log(finalLog)

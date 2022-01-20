@@ -6,9 +6,16 @@ export const harvestPlants = (plantsArray) => {
     let seedObjects = []
     for (const plant of plantsArray) {
         //on each plant get the value of the output property
-         for (let i = 0; i< plant.output; i++){
-            seedObjects.push(plant)
-         }
+        if (plant.type === "Corn"){
+            const cornOutput = plant.output / 2
+            for (let i = 0; i< cornOutput; i++){
+                seedObjects.push(plant)
+             }
+        }else {
+            for (let i = 0; i< plant.output; i++){
+               seedObjects.push(plant)
+            }
+        }
         //add that many of the plant object to the array 
         //that the function returns
          
