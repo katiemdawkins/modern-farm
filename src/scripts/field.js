@@ -13,6 +13,6 @@ export const addPlant = (seedObject) => {
 //define and export a function named usePlants
 //this returns a copy of the array of plants
 export const usePlants = () => {
-    let newAllOfThePlants = allOfThePlants
+    let newAllOfThePlants = allOfThePlants.map(plant => ({...plant}))
     return newAllOfThePlants
 }

@@ -1,9 +1,10 @@
-import { addPlant } from "./field.js"
+import { addPlant, usePlants } from "./field.js"
 import { createAsparagus } from "./seeds/asparagus.js"
 import { createCorn } from "./seeds/corn.js"
 import { createPotato } from "./seeds/potato.js"
 import { createSoybean } from "./seeds/soybean.js"
 import { createWheat } from "./seeds/wheat.js"
+import { createSunflower } from "./seeds/sunflower.js"
 
 // the plan = an array containing 4 arrays
 // Example plan const plantingPlan = [
@@ -16,35 +17,37 @@ import { createWheat } from "./seeds/wheat.js"
 
 //define and export plantSeeds function
 //must accept the year's planting plan as input
-export const plantSeeds = (plantingPlan) => {
+export const plantSeeds = (yearlyPlan) => {
     // iterate both parent array and child arrays 
-    for (const plan in plantingPlan) {
-        for (const foodType in plan) {
+    for (const plan of yearlyPlan) {
+        for (const foodType of plan) {
             //as you iterate row of food types to be planted invoke
             //a factory function (if Asparagus invoke createAsparagus)
             if (foodType === "Asparagus") {
                 const asparagusSeed = createAsparagus()
-                return asparagusSeed
+                addPlant(asparagusSeed)
             } else if (foodType === "Corn") {
                 const cornSeed = createCorn()
-                return cornSeed
+                for(const corn of cornSeed){
+                    addPlant(corn)
+                }
             } else if (foodType === "Potato") {
                 const potatoSeed = createPotato()
-                return potatoSeed
+                addPlant(potatoSeed)
             } else if (foodType === "Soybean") {
                 const soybeanSeed = createSoybean()
-                return soybeanSeed
+                addPlant(soybeanSeed)
             } else if (foodType === "Sunflower"){
                 const sunflowerSeed = createSunflower()
-                return sunflowerSeed
+                addPlant(sunflowerSeed)
             } else if (foodType === "Wheat") {
                 const wheatSeed = createWheat()
-                return wheatSeed
-            } const seed = addPlant()
-              return seed
+                addPlant(wheatSeed)
+            } //const seed = addPlant()
+              //return seed
         //take that seed and add to the array of plants in the field module
         } 
-    }  
+    }  return usePlants()
 }
 
 
