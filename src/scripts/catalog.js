@@ -7,10 +7,9 @@ export const Catalog = (harvestArray) => {
     for (const plant of harvestArray) {
         //<main> append inner HTML
         templateString += `<section class="plant">${plant.type}</section>`
-            
-        
     }
+    document.querySelector(".container").innerHTML += templateString
 }
-const ladeedaa = document.querySelector("#container")
 
-.innerHTML += templateString
+
+
